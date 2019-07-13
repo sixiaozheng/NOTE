@@ -294,19 +294,15 @@ $ git checkout -- test.py
 
 ## Clone from remote repository
 
-    ```bash
+```bash
 $ git clone https://github.com/ThinkToKnow/NOTE.git
-    ```
+```
 
 Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
 
 使用`https`速度慢，每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
 
 ​     
-
-
-
-
 
 
 ## 命令快速检索区
@@ -362,6 +358,7 @@ $ git push -u origin master
 # 第一次push后，每次commit后，push到remote repository
 $ git push origin master
 
-
+# clone repository
+$ git clone https://github.com/ThinkToKnow/NOTE.git
 ```
 
