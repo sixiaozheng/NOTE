@@ -248,8 +248,16 @@ $ git checkout -- test.py
 2.  在Repository name填入`learngit`，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
 
 3.  ```bash
-    git remote add origin git@github.com:michaelliao/learngit.git
+    git remote add origin https://github.com/ThinkToKnow/NOTE.git
     ```
+
+添加后，远程库的名字就是`origin`，这是Git默认的叫法，也可以改成别的。
+
+
+
+
+
+
 
 ## 命令快速检索区
 
