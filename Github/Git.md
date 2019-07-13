@@ -248,11 +248,61 @@ $ git checkout -- test.py
 2.  在Repository name填入`learngit`，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
 
 3.  ```bash
-    git remote add origin https://github.com/ThinkToKnow/NOTE.git
+    $ git remote add origin https://github.com/ThinkToKnow/NOTE.git
     ```
 
 添加后，远程库的名字就是`origin`，这是Git默认的叫法，也可以改成别的。
 
+4. ```bash
+    # 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+    $ git push -u origin master
+    To https://github.com/ThinkToKnow/NOTE.git
+     ! [rejected]        master -> master (fetch first)
+    error: failed to push some refs to 'https://github.com/ThinkToKnow/NOTE.git'
+    hint: Updates were rejected because the remote contains work that you do
+    hint: not have locally. This is usually caused by another repository pushing
+    hint: to the same ref. You may want to first integrate the remote changes
+    hint: (e.g., 'git pull ...') before pushing again.
+    hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+    ```
+
+    **问题原因**：远程库与本地库不一致造成的，在hint中也有提示把远程库同步到本地库就可以了。
+
+    **解决办法**：
+
+    ```bash
+    git pull --rebase origin master
+    ```
+
+    该命令的意思是把远程库中的**更新合并**到（**pull=fetch+merge**）本地库中，**–-rebase**的作用是取消掉本地库中刚刚的commit，并把他们**接到**更新后的版本库之中。出现如下图执行pull执行成功后，可以成功执行git push origin master操作。
+
+    ```bash
+    $ git push origin master
+    ```
+
+5. git pull 失败 ,提示：fatal: refusing to [merge](https://www.centos.bz/tag/merge/) unrelated historiesgit 
+
+    ```bash
+    $ git pull origin master --allow-unrelated-histories
+    ```
+
+6. 以后本地修改后commit，就可以通过命令：
+
+    ```bash
+    $ git push origin master 
+    ```
+
+## Clone from remote repository
+
+    ```bash
+$ git clone https://github.com/ThinkToKnow/NOTE.git
+    ```
+
+Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
+
+使用`https`速度慢，每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
+
+​     
 
 
 
@@ -282,7 +332,7 @@ git status
 $ git diff
 $ git diff HEAD <file>
 
-# 撤销在working directory的修改
+# 撤销在working directory的修改,可以在误删文件时使用
 $ git checkout -- <file>...
 
 $ git add file1.txt
@@ -300,7 +350,18 @@ $ git reset --hard HEAD^
 # 查看commit和reset的历史命令
 $ git reflog
 
-# 将HEAD指向commit id对应的版本
+# 将HEAD指向commit id对应的版本，用于从repo中不同的commit版本中恢复文件到working directory
 $ git reset --hard <commit id>
+
+# 添加remote repository
+git remote add origin https://github.com/ThinkToKnow/NOTE.git
+
+# 第一次push到remote repository
+$ git push -u origin master
+
+# 第一次push后，每次commit后，push到remote repository
+$ git push origin master
+
+
 ```
 
