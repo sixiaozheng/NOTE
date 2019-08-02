@@ -360,5 +360,11 @@ $ git push origin master
 
 # clone repository
 $ git clone https://github.com/ThinkToKnow/NOTE.git
+
+# check the remote address
+$ git remote -v
+
+# change the remote address
+git remote set-url origin git@github.com:ThinkToKnow/learning_to_teach_pytroch.git
 ```
 
