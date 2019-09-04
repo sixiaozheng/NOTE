@@ -754,6 +754,11 @@ array([2, 1, 3, 3, 4])
 
 >>> a = np.arange(5)
 >>> a[[0,0,2]]+=1 # a[[0,0,2]]=a[[0,0,2]]+1 This is because Python requires “a+=1” to be equivalent to “a = a + 1”.
+
+# solve 
+bbins = np.bincount([0,0,2])
+a[:len(bbins)] += bbins
+
 >>> a
 array([1, 1, 3, 3, 4])
 ```

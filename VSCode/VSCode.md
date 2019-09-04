@@ -1,3 +1,5 @@
+
+
 -   Command Palette: Ctrl + Shift + P
 -   Quick Open: Ctrl + P
 -   Errors and warnings: Ctrl + Shift + M   使用F8或Shift + F8循环错误
@@ -29,3 +31,10 @@
 Ctrl + Shift + G
 
 -   Review pane: 使用F7和Shift + F7浏览差异。
+
+## 问题：右键`run code`输出出现乱码
+
+解决：开始->设置->时间和语言->其他日期、时间和区域设置->区域.更改位置->管理.更改系统区域设置->勾选->重启
+
+![å¨è¿éæå¥å¾çæè¿°](https://img-blog.csdnimg.cn/20190526114234875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTAzMzM0Mg==,size_16,color_FFFFFF,t_70)
+

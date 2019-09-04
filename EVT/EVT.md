@@ -185,6 +185,12 @@ $$
 {\displaystyle f(s;\xi )={\begin{cases}(1+\xi s)^{(-1/\xi )-1}\exp(-(1+\xi s)^{-1/\xi })&\xi \neq 0\\\exp(-s)\exp(-\exp(-s))&\xi =0\end{cases}}}
 $$
 
+again valid for ![{\displaystyle s>-1/\xi }](https://wikimedia.org/api/rest_v1/media/math/render/svg/505682aae27709b6f31cd3dd3740ccc54b059ad6) in the case ![\xi>0](https://wikimedia.org/api/rest_v1/media/math/render/svg/973be61089b52fdb5da82587ce45d0febc1aedac), and for![{\displaystyle s<-1/\xi }](https://wikimedia.org/api/rest_v1/media/math/render/svg/f43d325dfeaff7bccb87fd965f1c5edba275df12) in the case ![\xi<0](https://wikimedia.org/api/rest_v1/media/math/render/svg/e9d724a5e116e041411f59b3ad16db58de2e688f). The density is zero outside of the relevant range. In the case ![\xi =0](https://wikimedia.org/api/rest_v1/media/math/render/svg/da5354e193004a0e2f16e7d4a76ea499ffcca225) the density is positive on the whole real line.
+
+Remark I: The theory here relates to data **maxima** and the distribution being discussed is an extreme value distribution for maxima. A generalized extreme value distribution for data **minima** can be obtained, for example by **substituting (−*x*) for *x*** in the distribution function, and **subtracting from one**: this yields a separate family of distributions. 将表达式中的x替换成-x，然后1-F(-x)就得到建模minima的pdf，如W-SVM中的Weibull。
+
+Remark II: The ordinary Weibull distribution arises in reliability applications and is obtained from the distribution here by using the variable $t=\mu -x$, which gives a strictly positive support - in contrast to the use in the extreme value theory here. This arises because the Weibull distribution is used in cases that deal with data minima rather than data maxima. The distribution here has an addition parameter compared to the usual form of the Weibull distribution and, in addition, is reversed so that the distribution has an upper bound rather than a lower bound. Importantly, in applications of the GEV, the upper bound is unknown and so must be estimated, while when applying the Weibull distribution the lower bound is known to be zero.
+
 ![1564038771899](C:\Users\ThinkToKnow\AppData\Roaming\Typora\typora-user-images\1564038771899.png)
 
 **极值分布的类型完全由形状参数$\xi$来确定， 与位置参数$\mu$和尺度参数$\sigma$无关**
@@ -202,6 +208,25 @@ $x\to\infty$时，
 -   Weibull，III型分布具有有限的上端点，左偏，细尾分布
 
 当$\alpha\to\infty$时，Fréchet和Weibull分布即为Gumbel分布
+
+样本
+$$
+X_1,X_2,\dots,X_T
+$$
+区间长度：$n$
+
+区间数：$m=\frac{T}{n}$
+$$
+[X_1,\dots,X_n|X_{n+1},\dots,X_{2n}|\dots|X_{(m-1)n+1}\dots,X_{mn}]
+$$
+区间最大值序列：$D_{BMM}=\{M^{(1)}_n,\dots,M^{(m)}_n\}$
+
+似然函数:
+$$
+L_n(\xi,\mu,\sigma)=-m\log(\sigma)-(1+\frac{1}{\xi})\sum^m_{i=1}\log(1+\xi(\frac{M^{(i)}_n-\mu}{\sigma}))-\sum^m_{i=1}(1+\xi(\frac{M^{(i)}_n-\mu}{\sigma}))^{-\frac{1}{\xi}}, \quad \xi\neq0 \\
+L_n(\mu,\sigma)=-m\log(\sigma)-\sum^m_{i=1}(\frac{M^{(i)}_n-\mu}{\sigma})-\sum^m_{i=1}\exp(-(\frac{M^{(i)}_n-\mu}{\sigma})), \quad \xi=0
+$$
+
 
 ## Pickands–Balkema–de Haan theorem
 
@@ -225,6 +250,16 @@ $$
 -   $G_1$,type I,指数分布，$\xi=0$, 细尾
 -   $G_2$,type II,Pareto分布，$\xi>0$，$\xi$越大，尾越大
 -   $G_3$,type III,Beta分布，$\xi<0$，$\xi$越小，GPD集中在有限域$[0,-\frac{1}{\xi}]$内，负数越小范围越窄。
+
+$x=\{x_1,\dots,x_n\}$
+
+似然函数
+$$
+L(x;\sigma,\xi)=n\log\xi-n\log\sigma-(1+\frac{1}{\xi})\sum^n_{i=1}\log(1+\frac{\xi}{\sigma}x_i), \quad
+\xi>0, x_i\geqslant0, \quad \xi<0, 0\leqslant x_i\leqslant-\frac{\sigma}{\xi} \\
+L(x;\sigma)=-n\log\xi-\sigma^{-1}\sum^n_{i=1}x_i, \quad \xi=0
+$$
+
 
 PDF
 

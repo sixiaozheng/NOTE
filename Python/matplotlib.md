@@ -930,4 +930,76 @@ plt.show()
 
 ![../../_images/sphx_glr_scatter_demo2_001.png](https://matplotlib.org/_images/sphx_glr_scatter_demo2_001.png)
 
-### GUI widgets
+
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure()
+fig.suptitle('No axes on this figure')
+fig, ax_lst = plt.subplots(2, 2)
+
+x = np.linspace(0, 2, 100)
+
+ax_lst[0,0].plot(x, x, label='linear')
+ax_lst[0,1].plot(x, x**2, label='quadratic')
+ax_lst[1,0].plot(x, x**3, label='cubic')
+
+plt.show()
+
+
+
+x = np.linspace(0, 2, 100)
+
+plt.plot(x, x, label='linear')
+plt.plot(x, x**2, label='quadratic')
+plt.plot(x, x**3, label='cubic')
+
+plt.axis([0,2,0,10])
+
+plt.xlabel('x label')
+plt.ylabel('y label')
+
+plt.title("Simple Plot")
+
+plt.legend()
+
+plt.show()
+
+
+
+names = ['group_a', 'group_b', 'group_c']
+values = [1, 10, 100]
+
+plt.figure(figsize=(9, 3))
+
+plt.subplot(131)
+plt.bar(names, values)
+plt.subplot(132)
+plt.scatter(names, values)
+plt.subplot(133)
+plt.plot(names, values)
+plt.suptitle('Categorical Plotting')
+plt.show()
+
+
+import matplotlib.pyplot as plt
+plt.figure(1)                # the first figure
+plt.subplot(211)             # the first subplot in the first figure
+plt.plot([1, 2, 3])
+plt.subplot(212)             # the second subplot in the first figure
+plt.plot([4, 5, 6])
+
+
+plt.figure(2)                # a second figure
+plt.plot([4, 5, 6])          # creates a subplot(111) by default
+
+plt.figure(1)                # figure 1 current; subplot(212) still current
+plt.subplot(211)             # make subplot(211) in figure1 current
+plt.title('Easy as 1, 2, 3') # subplot 211 title
+
+plt.show()
+```
+
+![ãmatplotlibé¢è²è¡¨ã](https://finthon.com/wp-content/uploads/2018/10/matplotlib-color-1024x1008.png)
