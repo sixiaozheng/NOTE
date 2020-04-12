@@ -299,6 +299,8 @@ CDF
 
     The Gumbel distribution is sometimes referred to as a **type I** Fisher-Tippett distribution. It is also related to the extreme value distribution, log-Weibull and Gompertz distributions.
 
+    ![../_images/scipy-stats-gumbel_r-1.png](https://docs.scipy.org/doc/scipy/reference/_images/scipy-stats-gumbel_r-1.png)
+
 -   Fréchet type II
 
     **scipy.stats.invweibull**
@@ -315,7 +317,9 @@ CDF
 
     [`invweibull`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.invweibull.html#scipy.stats.invweibull) takes `c` as a shape parameter for c.
 
--   Weibull type III
+    ![../_images/scipy-stats-invweibull-1.png](https://docs.scipy.org/doc/scipy/reference/_images/scipy-stats-invweibull-1.png)
+
+-   Reversed Weibull type III
 
     **scipy.stats.weibull_max**
 
@@ -328,4 +332,21 @@ CDF
     ![1564039390323](C:\Users\ThinkToKnow\AppData\Roaming\Typora\typora-user-images\1564039390323.png)
 
     [`weibull_max`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_max.html#scipy.stats.weibull_max) takes `c` as a shape parameter for c.
+    
+    ![../_images/scipy-stats-weibull_max-1.png](https://docs.scipy.org/doc/scipy/reference/_images/scipy-stats-weibull_max-1.png)
 
+*   Weibull 
+
+    **scipy.stats.weibull_min**
+
+    Weibull minimum continuous random variable.
+
+    The probability density function for [`weibull_min`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_min.html#scipy.stats.weibull_min) is:
+
+    ![image-20191204175348728](C:\Users\ThinkToKnow\AppData\Roaming\Typora\typora-user-images\image-20191204175348728.png)
+
+    ![image-20191204175435136](C:\Users\ThinkToKnow\AppData\Roaming\Typora\typora-user-images\image-20191204175435136.png)
+
+    [`weibull_min`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_min.html#scipy.stats.weibull_min) takes `c` as a shape parameter for c.
+
+    ![../_images/scipy-stats-weibull_min-1.png](https://docs.scipy.org/doc/scipy/reference/_images/scipy-stats-weibull_min-1.png)

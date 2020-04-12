@@ -1003,3 +1003,10 @@ plt.show()
 ```
 
 ![ãmatplotlibé¢è²è¡¨ã](https://finthon.com/wp-content/uploads/2018/10/matplotlib-color-1024x1008.png)
+
+保存图片时去掉白边
+
+```python
+plt.savefig("results/paper_method{}_notitle0.png".format(random_state), dpi=1000, format='png', bbox_inches='tight')
+```
+

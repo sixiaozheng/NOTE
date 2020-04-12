@@ -1,2 +1,0 @@
-# NOTE
-My daily notes.
