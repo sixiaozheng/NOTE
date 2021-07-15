@@ -2,39 +2,90 @@
 
 ## Introductory
 
-
-
 ```pytho
 import matplotlib.pyplot as plt
 import numpy as np
 ```
 
+两种方式：
+
+```python
+fig, ax = plt.subplots()  # Create a figure containing a single axes.
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
+```
+
+```
+In [4]: fig
+Out[4]: <Figure size 640x480 with 1 Axes>
+
+In [5]: ax
+Out[5]: <AxesSubplot:>
+```
+
+一个fig下可以包含一个或多个ax（坐标轴）
+
+```python
+plt.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Matplotlib plot.
+```
+
+如果不存在ax，plt.plot 会创建ax
+
+
+
+```python
+# using the variable ax for single a Axes
+fig, ax = plt.subplots()
+
+# using the variable axs for multiple Axes
+fig, axs = plt.subplots(2, 2)
+
+# using tuple unpacking for multiple Axes
+fig, (ax1, ax2) = plt.subplots(1, 2)
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
+```
+
+### Figure
+
+```python
+fig = plt.figure()  # an empty figure with no Axes
+fig, ax = plt.subplots()  # a figure with a single Axes
+fig, axs = plt.subplots(2, 2)  # a figure with a 2x2 grid of Axes
+```
+
+
+
 ### Parts of a Figure
 
 ![../../_images/anatomy.png](https://matplotlib.org/_images/anatomy.png)
 
-```python
-fig = plt.figure()  # an empty figure with no axes
-fig.suptitle('No axes on this figure')  # Add a title so we know which it is
-
-fig, ax_lst = plt.subplots(2, 2)  # a figure with a 2x2 grid of Axes
-```
+面向对象的画图方法
 
 ```python
 x = np.linspace(0, 2, 100)
 
-plt.plot(x, x, label='linear')
-plt.plot(x, x**2, label='quadratic')
-plt.plot(x, x**3, label='cubic')
+# Note that even in the OO-style, we use `.pyplot.figure` to create the figure.
+fig, ax = plt.subplots()  # Create a figure and an axes.
+ax.plot(x, x, label='linear')  # Plot some data on the axes.
+ax.plot(x, x**2, label='quadratic')  # Plot more data on the axes...
+ax.plot(x, x**3, label='cubic')  # ... and some more.
+ax.set_xlabel('x label')  # Add an x-label to the axes.
+ax.set_ylabel('y label')  # Add a y-label to the axes.
+ax.set_title("Simple Plot")  # Add a title to the axes.
+ax.legend()  # Add a legend.
+```
 
+pyplot 的画图方法
+
+```python
+x = np.linspace(0, 2, 100)
+
+plt.plot(x, x, label='linear')  # Plot some data on the (implicit) axes.
+plt.plot(x, x**2, label='quadratic')  # etc.
+plt.plot(x, x**3, label='cubic')
 plt.xlabel('x label')
 plt.ylabel('y label')
-
 plt.title("Simple Plot")
-
 plt.legend()
-
-plt.show()
 ```
 
 ![../../_images/sphx_glr_usage_003.png](https://matplotlib.org/_images/sphx_glr_usage_003.png)
@@ -46,8 +97,6 @@ fig, ax = plt.subplots()
 ax.plot(x, y)
 plt.show()
 ```
-
-![../../_images/sphx_glr_usage_004.png](https://matplotlib.org/_images/sphx_glr_usage_004.png)
 
 ### Interactive example
 
